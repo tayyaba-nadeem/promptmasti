@@ -16,5 +16,4 @@ All files are stored here for easy access, updates, and integration with the mai
 - `webmanifest.json`
 
 ## 🧩 Purpose
-These favicon and manifest assets are part of the **Prompt Masti** branding —  
-a creative platform where users can explore and generate professional AI photo prompts using **Gemini AI**.
+These favicon and manifest assets are part of the **Prompt Masti** branding, a creative platform where users can explore and generate professional AI photo prompts using **Gemini AI**.
