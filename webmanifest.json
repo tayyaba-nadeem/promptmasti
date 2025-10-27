@@ -3,13 +3,13 @@
   "short_name": "Prompt Masti",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
