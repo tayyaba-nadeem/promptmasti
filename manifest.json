@@ -1,7 +1,7 @@
 {
   "name": "Prompt Masti",
   "short_name": "PromptMasti",
-  "description": "AI Prompts, Blogging Tools, SEO Tips, and Creative Resources by Asif Kamboh.",
+  "description": "AI Prompts, PromptMasti is a creative Gemini prompts and AI tools site by TAyyaba Nadeem. Discover high-quality Gemini AI prompts and image-generation tips.",
   "icons": [
     { "src": "https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/favicon-384x384.png", "sizes": "384x384", "type": "image/png" },
