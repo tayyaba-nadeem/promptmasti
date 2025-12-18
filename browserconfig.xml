@@ -2,10 +2,10 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/favicon-70x70.png"/>
-      <square150x150logo src="https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/favicon-150x150.png"/>
-      <square310x310logo src="https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/favicon-310x310.png"/>
-      <wide310x150logo src="https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/refs/heads/main/favicon-310x150.png"/>
+      <square70x70logo src="https://cdn.promptmasti.com/favicon-70x70.png"/>
+      <square150x150logo src="https://cdn.promptmasti.com/favicon-150x150.png"/>
+      <square310x310logo src="https://cdn.promptmasti.com/favicon-310x310.png"/>
+      <wide310x150logo src="https://cdn.promptmasti.com/favicon-310x150.png"/>
       <TileColor>#ffffff</TileColor>
     </tile>
   </msapplication>
