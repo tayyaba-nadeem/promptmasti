@@ -1,5 +1,5 @@
 const CACHE_NAME = 'promptmasti-v1.2';
-const CDN_URL = 'https://cdn.statically.io/gh/tayyaba-nadeem/promptmasti/main';
+const CDN_URL = 'https://cdn.promptmasti.com';
 
 // Assets to cache immediately
 const STATIC_ASSETS = [
@@ -155,3 +155,4 @@ self.addEventListener('notificationclick', (event) => {
     );
   }
 });
+
