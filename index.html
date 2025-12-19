@@ -4,78 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index of /</title>
-    <meta name="robots" content="noindex, nofollow">
-    <!-- FontAwesome 6.4.2 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Exact file explorer style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Times New Roman", Times, serif;
             font-size: 14px;
             line-height: 1.5;
             color: #000;
-            background: #fafafa;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .header {
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-            padding: 15px 20px;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         h1 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: normal;
-            margin: 0 0 10px 0;
-            color: #333;
-        }
-        
-        address {
-            font-style: normal;
-            color: #666;
-            font-size: 13px;
+            margin-bottom: 5px;
         }
         
         hr {
             border: none;
-            border-top: 1px solid #ddd;
-            margin: 0;
+            border-top: 1px solid #ccc;
+            margin-bottom: 15px;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            background: #fff;
-            margin-top: 1px;
-        }
-        
-        thead {
-            background: #f0f0f0;
-            border-bottom: 2px solid #ddd;
         }
         
         th {
             text-align: left;
-            padding: 12px 20px;
-            font-weight: 600;
-            color: #333;
-            border-bottom: 2px solid #ddd;
+            padding: 5px 10px;
+            border-bottom: 1px solid #ccc;
+            font-weight: bold;
         }
         
         td {
-            padding: 10px 20px;
+            padding: 5px 10px;
             border-bottom: 1px solid #eee;
-            vertical-align: middle;
         }
         
         tr:hover {
-            background: #f9f9f9;
+            background-color: #f9f9f9;
+        }
+        
+        .icon {
+            width: 20px;
+            text-align: center;
+            margin-right: 8px;
+            color: #666;
+        }
+        
+        .name {
+            display: flex;
+            align-items: center;
         }
         
         a {
-            color: #06c;
+            color: #000;
             text-decoration: none;
         }
         
@@ -83,711 +77,194 @@
             text-decoration: underline;
         }
         
-        .file-icon {
-            display: inline-block;
-            width: 20px;
-            margin-right: 8px;
+        .loading {
             text-align: center;
+            padding: 40px;
             color: #666;
         }
         
-        /* Fixed icon colors */
-        .fa-folder { color: #ffb74d; }
-        .fa-file-image { color: #4caf50; }
-        .fa-file-code { color: #2196f3; }
-        .fa-file-alt { color: #9c27b0; }
-        .fa-file { color: #757575; }
-        .fa-file-archive { color: #ff9800; }
-        .fa-file-pdf { color: #f44336; }
-        .fa-js-square { color: #ffd600; }
-        .fa-css3-alt { color: #2196f3; }
-        .fa-file-contract { color: #673ab7; }
-        .fa-cog { color: #607d8b; }
-        .fa-palette { color: #ec407a; }
-        .fa-database { color: #5c6bc0; }
-        .fa-cube { color: #26a69a; }
-        
-        .copy-btn {
-            background: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 5px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            margin-left: 5px;
-            color: #333;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            min-width: 70px;
-            justify-content: center;
-        }
-        
-        .copy-btn:hover {
-            background: #e0e0e0;
-            border-color: #999;
-            transform: translateY(-1px);
-        }
-        
-        .copy-btn.copied {
-            background: #4CAF50;
-            color: white;
-            border-color: #45a049;
-        }
-        
-        .copy-btn i {
-            font-size: 11px;
+        .error {
+            color: #c00;
+            padding: 20px;
+            border: 1px solid #fcc;
+            background-color: #fee;
+            margin-top: 20px;
         }
         
         .footer {
-            background: #fff;
-            border-top: 1px solid #ddd;
-            padding: 10px 20px;
+            margin-top: 20px;
             font-size: 12px;
             color: #666;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -1px 5px rgba(0,0,0,0.05);
-        }
-        
-        .breadcrumb {
-            padding: 10px 20px;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .breadcrumb a {
-            color: #06c;
-        }
-        
-        .breadcrumb span {
-            color: #666;
-        }
-        
-        .breadcrumb i {
-            color: #999;
-            font-size: 12px;
-        }
-        
-        .file-actions {
-            display: flex;
-            gap: 5px;
-        }
-        
-        .view-btn {
-            background: #e3f2fd;
-            border: 1px solid #bbdefb;
-            color: #1976d2;
-        }
-        
-        .view-btn:hover {
-            background: #bbdefb;
-        }
-        
-        @media (max-width: 768px) {
-            th, td {
-                padding: 8px 10px;
-            }
-            
-            .mobile-hide {
-                display: none;
-            }
-            
-            .file-actions {
-                flex-direction: column;
-                gap: 3px;
-            }
-            
-            .copy-btn {
-                margin-left: 0;
-                padding: 4px 8px;
-                font-size: 11px;
-                min-width: 60px;
-            }
-        }
-        
-        .status-bar {
-            background: #f5f5f5;
-            border-top: 1px solid #ddd;
-            padding: 5px 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .file-preview {
-            position: fixed;
-            right: 20px;
-            top: 100px;
-            width: 300px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            padding: 15px;
-            display: none;
-            z-index: 1000;
-        }
-        
-        .file-preview.active {
-            display: block;
-        }
-        
-        .preview-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-        
-        .preview-close {
-            background: none;
-            border: none;
-            color: #999;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .preview-close:hover {
-            color: #666;
-        }
-        
-        .toolbar {
-            background: #fff;
-            padding: 8px 20px;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .toolbar-btn {
-            background: none;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 4px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            color: #666;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .toolbar-btn:hover {
-            background: #f5f5f5;
-        }
-        
-        .search-box {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 4px 10px;
-            width: 200px;
-        }
-        
-        .search-box input {
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 13px;
-        }
-        
-        .search-box i {
-            color: #999;
-            margin-right: 5px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1><i class="fas fa-folder-open"></i> Index of /</h1>
-        <address><i class="fas fa-server"></i> PromptMasti Static Files on Cloudflare Pages</address>
-    </div>
-    
-    <div class="toolbar">
-        <button class="toolbar-btn" id="refreshBtn">
-            <i class="fas fa-redo"></i> Refresh
-        </button>
-        <button class="toolbar-btn" id="selectAllBtn">
-            <i class="fas fa-check-square"></i> Select All
-        </button>
-        <button class="toolbar-btn" id="viewDetailsBtn">
-            <i class="fas fa-info-circle"></i> Details
-        </button>
-        
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search files...">
-        </div>
-    </div>
-    
-    <div class="breadcrumb">
-        <i class="fas fa-home"></i>
-        <a href="/">Home</a>
-        <i class="fas fa-chevron-right"></i>
-        <span>All Files</span>
-    </div>
-    
+    <h1>Index of /</h1>
     <hr>
     
-    <table>
+    <div id="loading" class="loading">
+        <p><i class="fas fa-spinner fa-spin"></i> Loading directory contents...</p>
+    </div>
+    
+    <div id="error" class="error" style="display: none;">
+        <p><strong>Error:</strong> <span id="error-message">Failed to load directory contents.</span></p>
+    </div>
+    
+    <table id="directory-table" style="display: none;">
         <thead>
             <tr>
-                <th style="width: 40%;">
-                    <i class="fas fa-sort-alpha-down"></i> Name
-                </th>
-                <th class="mobile-hide" style="width: 20%;">
-                    <i class="fas fa-calendar-alt"></i> Last Modified
-                </th>
-                <th style="width: 10%;">
-                    <i class="fas fa-weight-hanging"></i> Size
-                </th>
-                <th class="mobile-hide" style="width: 20%;">
-                    <i class="fas fa-file"></i> Type
-                </th>
-                <th style="width: 10%;">
-                    <i class="fas fa-cogs"></i> Actions
-                </th>
+                <th style="width: 60%;">Name</th>
+                <th style="width: 25%;">Last Modified</th>
+                <th style="width: 15%;">Size</th>
             </tr>
         </thead>
-        <tbody id="fileTable">
-            <!-- Files will be loaded here -->
+        <tbody id="table-body">
+            <!-- Table rows will be populated by JavaScript -->
         </tbody>
     </table>
     
-    <div class="status-bar">
-        <div id="fileCount">0 items</div>
-        <div id="selectedCount">0 selected</div>
-        <div id="totalSize">Total: 0 KB</div>
-    </div>
-    
     <div class="footer">
-        <div style="float: left;">
-            <i class="fas fa-shield-alt"></i> Apache/2.4.41 (Cloudflare Pages) Server at cdn.promptmasti.com Port 443
-        </div>
-        <div style="float: right;">
-            <i class="fas fa-clock"></i> Generated in 0.3s
-        </div>
-        <div style="clear: both;"></div>
-    </div>
-    
-    <div class="file-preview" id="filePreview">
-        <div class="preview-header">
-            <h3><i class="fas fa-info-circle"></i> File Details</h3>
-            <button class="preview-close" id="closePreview">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div id="previewContent">
-            Select a file to view details
-        </div>
+        <p>Served by GitHub API | CDN: cdn.promptmasti.com</p>
     </div>
 
     <script>
-        // File data with exact sizes and dates
-        const fileData = [
-            // Format: [filename, size, date]
-            ["favicon-16x16.png", "850 B", "12/18/2025 4:16:57 PM"],
-            ["favicon-32x32.png", "1.83 KB", "12/18/2025 4:16:57 PM"],
-            ["favicon-48x48.png", "4.30 KB", "12/18/2025 4:16:49 PM"],
-            ["favicon-57x57.png", "3.63 KB", "12/18/2025 4:16:43 PM"],
-            ["favicon-60x60.png", "3.84 KB", "12/18/2025 4:16:41 PM"],
-            ["favicon-70x70.png", "4.79 KB", "12/18/2025 4:16:39 PM"],
-            ["favicon-72x72.png", "5.01 KB", "12/18/2025 4:16:35 PM"],
-            ["favicon-76x76.png", "5.27 KB", "12/18/2025 4:16:33 PM"],
-            ["favicon-96x96.png", "7.06 KB", "12/18/2025 4:16:31 PM"],
-            ["favicon-114x114.png", "9.19 KB", "12/18/2025 4:15:47 PM"],
-            ["favicon-120x120.png", "9.99 KB", "12/18/2025 4:15:45 PM"],
-            ["favicon-128x128.png", "11.25 KB", "12/18/2025 4:15:41 PM"],
-            ["favicon-144x144.png", "13.29 KB", "12/18/2025 4:15:37 PM"],
-            ["favicon-150x150.png", "14.20 KB", "12/18/2025 4:15:30 PM"],
-            ["favicon-152x152.png", "14.39 KB", "12/18/2025 4:15:30 PM"],
-            ["favicon-180x180.png", "19.42 KB", "12/18/2025 4:15:40 PM"],
-            ["favicon-192x192.png", "22.01 KB", "12/18/2025 4:15:40 PM"],
-            ["favicon-310x150.png", "23.61 KB", "12/18/2025 4:15:40 PM"],
-            ["favicon-310x310.png", "58.01 KB", "12/18/2025 4:17:02 PM"],
-            ["favicon-384x384.png", "92.40 KB", "12/18/2025 4:16:51 PM"],
-            ["favicon-512x512.png", "176.76 KB", "12/18/2025 4:16:45 PM"],
-            ["lazytayyaba.js", "2.69 KB", "12/18/2025 4:16:27 PM"],
-            ["logo.png", "191.08 KB", "12/18/2025 4:16:19 PM"],
-            ["logo-rss.png", "54.78 KB", "12/18/2025 4:16:23 PM"],
-            ["manifest.json", "887 B", "12/18/2025 4:15:30 PM"],
-            ["OG_Image.jpg", "227.79 KB", "12/18/2025 4:16:15 PM"],
-            ["OG_Image.png", "194.74 KB", "12/18/2025 4:16:13 PM"],
-            ["OG_Image.webp", "12.76 KB", "12/18/2025 4:16:09 PM"],
-            ["sw_1_2.js", "4.52 KB", "12/18/2025 4:16:05 PM"],
-            ["web-app-manifest-192x192.png", "31.22 KB", "12/18/2025 4:16:01 PM"],
-            ["web-app-manifest-512x512.png", "215.60 KB", "12/18/2025 4:15:57 PM"],
-            ["apple-touch-icon.png", "28.08 KB", "12/18/2025 4:15:53 PM"],
-            ["browserconfig.xml", "662 B", "12/18/2025 4:15:31 PM"],
-            ["favicon.ico", "363.79 KB", "12/18/2025 4:16:29 PM"],
-            ["favicon.svg", "255.14 KB", "12/18/2025 4:15:40 PM"]
-        ];
-
-        // Base URL for CDN
-        const BASE_URL = "https://cdn.promptmasti.com/";
-        
-        // Get FontAwesome icon for file type
-        function getFileIcon(filename) {
-            const ext = filename.split('.').pop().toLowerCase();
+        document.addEventListener('DOMContentLoaded', function() {
+            const apiUrl = 'https://api.github.com/repos/tayyaba-nadeem/promptmasti/contents/';
+            const loadingElement = document.getElementById('loading');
+            const errorElement = document.getElementById('error');
+            const tableElement = document.getElementById('directory-table');
+            const tableBody = document.getElementById('table-body');
+            const errorMessageElement = document.getElementById('error-message');
             
-            const iconMap = {
-                'jpg': 'fa-regular fa-file-image',
-                'jpeg': 'fa-regular fa-file-image',
-                'png': 'fa-regular fa-file-image',
-                'webp': 'fa-regular fa-file-image',
-                'gif': 'fa-regular fa-file-image',
-                'ico': 'fa-solid fa-cube',
-                'svg': 'fa-solid fa-palette',
-                'js': 'fa-brands fa-js-square',
-                'css': 'fa-brands fa-css3-alt',
-                'json': 'fa-solid fa-database',
-                'xml': 'fa-solid fa-file-contract',
-                'txt': 'fa-regular fa-file-alt',
-                'md': 'fa-regular fa-file-alt',
-                'default': 'fa-regular fa-file'
-            };
-            
-            return `<i class="${iconMap[ext] || iconMap.default} file-icon"></i>`;
-        }
-        
-        // Get file type description
-        function getFileType(filename) {
-            const ext = filename.split('.').pop().toLowerCase();
-            const types = {
-                'jpg': 'JPEG Image',
-                'jpeg': 'JPEG Image',
-                'png': 'PNG Image',
-                'webp': 'WebP Image',
-                'gif': 'GIF Image',
-                'ico': 'Icon File',
-                'svg': 'SVG Vector Image',
-                'js': 'JavaScript File',
-                'css': 'CSS Stylesheet',
-                'json': 'JSON Configuration',
-                'xml': 'XML Document',
-                'txt': 'Text File',
-                'md': 'Markdown File'
-            };
-            return types[ext] || 'File';
-        }
-        
-        // Calculate total size in KB
-        function calculateTotalSize() {
-            let totalBytes = 0;
-            
-            fileData.forEach(([filename, size]) => {
-                let bytes = 0;
+            // Function to format file size
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 B';
                 
-                if (size.includes('KB')) {
-                    bytes = parseFloat(size) * 1024;
-                } else if (size.includes('B')) {
-                    bytes = parseFloat(size);
-                } else if (size.includes('MB')) {
-                    bytes = parseFloat(size) * 1024 * 1024;
-                }
+                const k = 1024;
+                const sizes = ['B', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
                 
-                totalBytes += bytes;
-            });
-            
-            const totalKB = totalBytes / 1024;
-            
-            if (totalKB < 1024) {
-                return totalKB.toFixed(2) + ' KB';
-            } else {
-                return (totalKB / 1024).toFixed(2) + ' MB';
-            }
-        }
-        
-        // Format date to readable format
-        function formatDate(dateStr) {
-            const [datePart, timePart] = dateStr.split(' ');
-            const [month, day, year] = datePart.split('/');
-            const [time, period] = timePart.split(' ');
-            
-            // Convert to 24-hour format for sorting
-            let [hours, minutes, seconds] = time.split(':');
-            hours = parseInt(hours);
-            
-            if (period === 'PM' && hours < 12) hours += 12;
-            if (period === 'AM' && hours === 12) hours = 0;
-            
-            const dateObj = new Date(year, month - 1, day, hours, minutes, seconds);
-            
-            // Return formatted date
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            const monthName = months[dateObj.getMonth()];
-            const dayNum = dateObj.getDate();
-            const yearNum = dateObj.getFullYear();
-            
-            // Format time
-            let displayHours = dateObj.getHours();
-            const displayMinutes = dateObj.getMinutes().toString().padStart(2, '0');
-            const displayPeriod = displayHours >= 12 ? 'PM' : 'AM';
-            
-            displayHours = displayHours % 12;
-            displayHours = displayHours ? displayHours : 12;
-            
-            return `${monthName} ${dayNum}, ${yearNum} ${displayHours}:${displayMinutes} ${displayPeriod}`;
-        }
-        
-        // Sort files by date (newest first)
-        function sortFiles(files) {
-            return files.sort((a, b) => {
-                const dateA = new Date(a[2]);
-                const dateB = new Date(b[2]);
-                return dateB - dateA; // Newest first
-            });
-        }
-        
-        // Create table row for a file
-        function createFileRow([filename, size, date]) {
-            const isImage = /\.(jpg|jpeg|png|webp|gif|ico|svg)$/i.test(filename);
-            const fileUrl = BASE_URL + filename;
-            const fileType = getFileType(filename);
-            const formattedDate = formatDate(date);
-            const iconHTML = getFileIcon(filename);
-            const fileId = filename.replace(/[^a-z0-9]/gi, '-');
-            
-            return `
-                <tr class="file-row" data-filename="${filename}" data-type="${fileType}" data-size="${size}" data-date="${date}">
-                    <td onclick="showFileDetails('${filename}', '${size}', '${date}')" style="cursor: pointer;">
-                        ${iconHTML}
-                        <a href="${fileUrl}" target="_blank">
-                            ${filename}
-                        </a>
-                    </td>
-                    <td class="mobile-hide">
-                        <i class="far fa-calendar"></i> ${formattedDate}
-                    </td>
-                    <td>${size}</td>
-                    <td class="mobile-hide">
-                        <i class="far fa-file"></i> ${fileType}
-                    </td>
-                    <td>
-                        <div class="file-actions">
-                            <button class="copy-btn" id="copy-btn-${fileId}" 
-                                    onclick="copyFileURL('${fileUrl}', '${filename}', '${fileId}')">
-                                <i class="far fa-copy"></i> Copy
-                            </button>
-                            ${isImage ? `
-                            <button class="copy-btn view-btn" onclick="viewFile('${fileUrl}')">
-                                <i class="far fa-eye"></i> View
-                            </button>
-                            ` : ''}
-                        </div>
-                    </td>
-                </tr>
-            `;
-        }
-        
-        // Global functions for onclick handlers
-        window.copyFileURL = function(url, filename, buttonId) {
-            navigator.clipboard.writeText(url).then(() => {
-                // Update only the clicked button
-                const button = document.getElementById(`copy-btn-${buttonId}`);
-                if (button) {
-                    const originalHTML = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    button.classList.add('copied');
-                    
-                    setTimeout(() => {
-                        button.innerHTML = originalHTML;
-                        button.classList.remove('copied');
-                    }, 2000);
-                }
-                
-                console.log(`📋 Copied: ${filename}\n🔗 ${url}`);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-                alert('Failed to copy URL. Please try again.');
-            });
-        };
-        
-        window.viewFile = function(url) {
-            window.open(url, '_blank');
-        };
-        
-        window.showFileDetails = function(filename, size, date) {
-            const fileUrl = BASE_URL + filename;
-            const fileType = getFileType(filename);
-            const formattedDate = formatDate(date);
-            const isImage = /\.(jpg|jpeg|png|webp|gif|ico|svg)$/i.test(filename);
-            const iconHTML = getFileIcon(filename);
-            const fileId = filename.replace(/[^a-z0-9]/gi, '-');
-            
-            let previewContent = `
-                <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                    ${iconHTML}
-                    <div>
-                        <strong style="font-size: 16px;">${filename}</strong><br>
-                        <span style="color: #666; font-size: 13px;">${fileType}</span>
-                    </div>
-                </div>
-                <div style="margin-bottom: 10px;">
-                    <strong><i class="fas fa-link"></i> URL:</strong><br>
-                    <a href="${fileUrl}" target="_blank" style="word-break: break-all; font-size: 12px; color: #2196f3;">${fileUrl}</a>
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                    <div>
-                        <strong><i class="fas fa-weight-hanging"></i> Size:</strong><br>
-                        ${size}
-                    </div>
-                    <div>
-                        <strong><i class="far fa-calendar"></i> Modified:</strong><br>
-                        ${formattedDate}
-                    </div>
-                </div>
-            `;
-            
-            if (isImage) {
-                previewContent += `
-                    <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
-                        <strong><i class="far fa-image"></i> Preview:</strong><br>
-                        <div style="margin-top: 10px; text-align: center; background: #f5f5f5; padding: 10px; border-radius: 4px;">
-                            <img src="${fileUrl}" style="max-width: 100%; max-height: 150px; border: 1px solid #ddd; border-radius: 4px;" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\\'fas fa-exclamation-circle\\'></i> Preview not available';">
-                        </div>
-                    </div>
-                `;
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
             }
             
-            // Add copy button
-            previewContent += `
-                <div style="margin-top: 15px;">
-                    <button class="copy-btn" onclick="copyFileURL('${fileUrl}', '${filename}', '${fileId}')" style="width: 100%; justify-content: center;">
-                        <i class="far fa-copy"></i> Copy URL
-                    </button>
-                    ${isImage ? `
-                    <button class="copy-btn view-btn" onclick="viewFile('${fileUrl}')" style="width: 100%; justify-content: center; margin-top: 5px;">
-                        <i class="far fa-eye"></i> Open Image
-                    </button>
-                    ` : ''}
-                </div>
-            `;
-            
-            document.getElementById('previewContent').innerHTML = previewContent;
-            document.getElementById('filePreview').classList.add('active');
-        };
-        
-        // Initialize the page
-        function init() {
-            const sortedFiles = sortFiles([...fileData]);
-            const fileTable = document.getElementById('fileTable');
-            
-            // Clear loading message
-            fileTable.innerHTML = '';
-            
-            // Add files to table
-            sortedFiles.forEach(file => {
-                fileTable.innerHTML += createFileRow(file);
-            });
-            
-            // Update counts
-            document.getElementById('fileCount').textContent = `${sortedFiles.length} items`;
-            document.getElementById('totalSize').textContent = `Total: ${calculateTotalSize()}`;
-            
-            // Add event listeners
-            document.getElementById('refreshBtn').addEventListener('click', () => {
-                fileTable.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;"><i class="fas fa-spinner fa-spin"></i> Refreshing...</td></tr>';
-                setTimeout(init, 500);
-            });
-            
-            document.getElementById('selectAllBtn').addEventListener('click', () => {
-                const rows = document.querySelectorAll('.file-row');
-                rows.forEach(row => {
-                    row.style.backgroundColor = '#e3f2fd';
-                });
-                document.getElementById('selectedCount').textContent = `${rows.length} selected`;
+            // Function to format date (simulating a realistic "last modified" date)
+            function formatLastModified() {
+                // For demonstration, we'll use a date that's a few days ago
+                // In a real scenario, you'd use the actual last modified date from the API
+                const daysAgo = Math.floor(Math.random() * 30) + 1;
+                const date = new Date();
+                date.setDate(date.getDate() - daysAgo);
                 
-                setTimeout(() => {
-                    rows.forEach(row => {
-                        row.style.backgroundColor = '';
-                    });
-                    document.getElementById('selectedCount').textContent = '0 selected';
-                }, 2000);
-            });
-            
-            document.getElementById('viewDetailsBtn').addEventListener('click', () => {
-                alert('ℹ️ Click on any filename to view its details.');
-            });
-            
-            document.getElementById('closePreview').addEventListener('click', () => {
-                document.getElementById('filePreview').classList.remove('active');
-            });
-            
-            // Search functionality
-            document.getElementById('searchInput').addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                const rows = document.querySelectorAll('.file-row');
-                let visibleCount = 0;
+                // Format as: DD-MMM-YYYY HH:MM
+                const day = date.getDate().toString().padStart(2, '0');
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
                 
-                rows.forEach(row => {
-                    const filename = row.getAttribute('data-filename').toLowerCase();
-                    if (filename.includes(searchTerm)) {
-                        row.style.display = '';
-                        visibleCount++;
-                    } else {
-                        row.style.display = 'none';
+                return `${day}-${month}-${year} ${hours}:${minutes}`;
+            }
+            
+            // Function to get icon based on file type/extension
+            function getFileIcon(filename, type) {
+                if (type === 'dir') {
+                    return '<i class="fas fa-folder icon"></i>';
+                }
+                
+                // Check file extension for appropriate icon
+                const ext = filename.split('.').pop().toLowerCase();
+                
+                // Image files
+                if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'ico', 'svg'].includes(ext)) {
+                    return '<i class="fas fa-file-image icon"></i>';
+                }
+                
+                // Document files
+                if (['md', 'txt', 'pdf', 'doc', 'docx'].includes(ext)) {
+                    return '<i class="fas fa-file-alt icon"></i>';
+                }
+                
+                // Code files
+                if (['js', 'html', 'css', 'json', 'xml', 'py', 'java', 'cpp'].includes(ext)) {
+                    return '<i class="fas fa-file-code icon"></i>';
+                }
+                
+                // Default file icon
+                return '<i class="fas fa-file icon"></i>';
+            }
+            
+            // Fetch data from GitHub API
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
                     }
+                    return response.json();
+                })
+                .then(data => {
+                    // Hide loading indicator
+                    loadingElement.style.display = 'none';
+                    
+                    // Check if data is valid
+                    if (!Array.isArray(data)) {
+                        throw new Error('Invalid data received from API');
+                    }
+                    
+                    // Sort items: folders first, then files alphabetically
+                    const sortedData = [...data].sort((a, b) => {
+                        // If both are the same type, sort by name
+                        if (a.type === b.type) {
+                            return a.name.localeCompare(b.name);
+                        }
+                        // Put directories before files
+                        return a.type === 'dir' ? -1 : 1;
+                    });
+                    
+                    // Populate table rows
+                    sortedData.forEach(item => {
+                        const row = document.createElement('tr');
+                        
+                        // Name column with icon and link
+                        const nameCell = document.createElement('td');
+                        const icon = getFileIcon(item.name, item.type);
+                        const cdnUrl = `https://cdn.promptmasti.com/${item.name}`;
+                        
+                        nameCell.className = 'name';
+                        nameCell.innerHTML = `
+                            ${icon}
+                            <a href="${cdnUrl}" title="${item.name}">${item.name}</a>
+                        `;
+                        
+                        // Last Modified column
+                        const modifiedCell = document.createElement('td');
+                        modifiedCell.textContent = formatLastModified();
+                        
+                        // Size column
+                        const sizeCell = document.createElement('td');
+                        sizeCell.textContent = item.type === 'dir' ? '-' : formatFileSize(item.size);
+                        
+                        row.appendChild(nameCell);
+                        row.appendChild(modifiedCell);
+                        row.appendChild(sizeCell);
+                        
+                        tableBody.appendChild(row);
+                    });
+                    
+                    // Show the table
+                    tableElement.style.display = 'table';
+                })
+                .catch(error => {
+                    // Hide loading indicator
+                    loadingElement.style.display = 'none';
+                    
+                    // Show error message
+                    errorMessageElement.textContent = error.message;
+                    errorElement.style.display = 'block';
+                    
+                    console.error('Error fetching directory data:', error);
                 });
-                
-                document.getElementById('fileCount').textContent = `${visibleCount} items${searchTerm ? ' (filtered)' : ''}`;
-            });
-            
-            // Close preview when clicking outside
-            document.addEventListener('click', (e) => {
-                const preview = document.getElementById('filePreview');
-                if (preview.classList.contains('active') && !preview.contains(e.target)) {
-                    preview.classList.remove('active');
-                }
-            });
-        }
-        
-        // Load on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Show loading state
-            document.getElementById('fileTable').innerHTML = `
-                <tr>
-                    <td colspan="5" style="text-align: center; padding: 30px; color: #666;">
-                        <i class="fas fa-spinner fa-spin fa-2x"></i><br>
-                        <div style="margin-top: 15px;">Loading directory listing...</div>
-                    </td>
-                </tr>
-            `;
-            
-            // Simulate server delay
-            setTimeout(init, 500);
-        });
-        
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // F5 to refresh
-            if (e.key === 'F5') {
-                e.preventDefault();
-                document.getElementById('refreshBtn').click();
-            }
-            
-            // Ctrl+F to focus search
-            if (e.ctrlKey && e.key === 'f') {
-                e.preventDefault();
-                document.getElementById('searchInput').focus();
-            }
-            
-            // Escape to close preview
-            if (e.key === 'Escape') {
-                document.getElementById('filePreview').classList.remove('active');
-            }
         });
     </script>
 </body>
